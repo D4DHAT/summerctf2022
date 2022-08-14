@@ -1,0 +1,545 @@
+MyLayout:
+    scr_mngr: scr_mngr
+    orientation: 'vertical'
+    MDNavigationLayout:
+        ScreenManager:
+            id: scr_mngr
+            MDScreen:
+                id: login_scr
+                name: 'login_scr'
+
+                MDBoxLayout:
+
+                    orientation: "vertical"
+                    size_hint: 1, 1
+                    md_bg_color: 13/255, 17/255, 34/255, 1
+
+
+                    Image:
+                        size_hint: 1, None
+                        height: "175dp"
+                        source: 'images/1853.png'
+                        pos_hint: {"center_x": 0.5, "center_y": 1}
+
+                    MDLabel:
+                        text: "HACK & MOVE"
+                        font_size: "42"
+                        halign: 'center'
+
+                    MDTextField:
+                        id: username
+                        size_hint: .75, None
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        hint_text: "Username "
+                        helper_text_mode: "on_focus"
+                        required: True
+
+                    Widget:
+                        size_hint: None, None
+                        height: "20dp"
+
+                    MDTextField:
+                        id: password
+                        size_hint: .75, None
+                        pos_hint: {"center_x": 0.5, "center_y": 0.6}
+                        hint_text: "Password "
+                        helper_text_mode: "on_focus"
+                        required: True
+                        password: True
+
+                    Widget:
+                        size_hint: None, None
+                        height: "40dp"
+
+                    MDRaisedButton:
+                        text: "LOGIN"
+                        md_bg_color: 102/255, 206/255, 145/255, 1
+                        pos_hint: {"center_x": 0.75, "center_y": 0.45}
+                        on_release: root.check_data_login()
+
+                    Widget:
+                        size_hint: 1, .6
+
+                    MDCard:
+                        size_hint: 1, .1
+                        md_bg_color: 102/255, 206/255, 145/255, 1
+
+
+            MDScreen:
+                id: home
+                name: 'home'
+
+                MDBoxLayout:
+                    orientation: "vertical"
+                    md_bg_color: 13/255, 17/255, 34/255, 1
+
+                    MDToolbar:
+                        title: ""
+                        size_hint: 1, None
+                        height: "40dp"
+                        specific_text_color: 13/255, 17/255, 34/255, 1
+                        md_bg_color: 102/255, 206/255, 145/255, 1
+                        right_action_items: [["menu", lambda x: nav_drawer.set_state("open")],["home", lambda x: root.change_screen("home")]]
+
+
+                    MDLabel:
+                        text: "HACK & MOVE"
+                        font_size: "42"
+                        halign: 'center'
+
+                    Image:
+                        size_hint: 1, None
+                        height: "175dp"
+                        source: 'images/1853.png'
+                        pos_hint: {"center_x": 0.5, "center_y": 1}
+
+            MDScreen:
+                id: bit
+                name: 'bit'
+                MDBoxLayout:
+                    orientation: "vertical"
+                    md_bg_color: 13/255, 17/255, 34/255, 1
+
+                    MDToolbar:
+                        title: ""
+                        size_hint: 1, None
+                        height: "40dp"
+                        specific_text_color: 13/255, 17/255, 34/255, 1
+                        md_bg_color: 102/255, 206/255, 145/255, 1
+                        right_action_items: [["menu", lambda x: nav_drawer.set_state("open")],["home", lambda x: root.change_screen("home")]]
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        md_bg_color: 13/255, 17/255, 34/255, 1
+
+                        MDLabel:
+                            text: "BACK IN TIME"
+                            font_style: "H4"
+                            halign: "center"
+                            adaptive_height: True
+
+                        MDLabel:
+                            text: "SOMETHINGS ARE HIDDEN IN PLAIN SIGHT. LOOK AROUND THE APP TO FIND THE KEY"
+                            font_style: "Caption"
+                            halign: "center"
+                            adaptive_height: True
+
+                        MDCard:
+                            md_bg_color: 102/255, 206/255, 145/255, 1
+                            size_hint: 1, None
+                            height: "3dp"
+
+                        Widget:
+                            size_hint: 1, None
+                            height: "150dp"
+
+                        MDLabel:
+                            id: bit_text
+                            text: "We don't communicate in full sentences anyway. We don't need all those words. -Shepard Smith"
+                            font_style: "Button"
+                            height: self.texture_size[1]
+                            halign: 'center'
+
+                        Widget:
+                            size_hint: 1, None
+                            height: "150dp"
+
+                        MDTextField:
+                            id: bit_flag
+                            size_hint: .75, None
+                            multiline: False
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            hint_text: "Enter key here."
+
+                        MDRaisedButton:
+                            id: bit_btn
+                            disabled: False
+                            text: "SUBMIT KEY"
+                            md_bg_color: 102/255, 206/255, 145/255, 1
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            on_release: root.check_bit()
+
+                        Widget:
+                            size_hint: 1, None
+                            height: "60dp"
+
+                        MDCard:
+                            md_bg_color: 13/255, 17/255, 34/255, 1
+                            size_hint: 1, None
+                            height: "20dp"
+
+            MDScreen:
+                id: crypto
+                name: 'crypto'
+                MDBoxLayout:
+                    orientation: "vertical"
+                    md_bg_color: 13/255, 17/255, 34/255, 1
+
+                    MDToolbar:
+                        title: ""
+                        size_hint: 1, None
+                        height: "40dp"
+                        specific_text_color: 13/255, 17/255, 34/255, 1
+                        md_bg_color: 102/255, 206/255, 145/255, 1
+                        right_action_items: [["menu", lambda x: nav_drawer.set_state("open")],["home", lambda x: root.change_screen("home")]]
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        md_bg_color: 13/255, 17/255, 34/255, 1
+
+                        MDLabel:
+                            text: "SECRET MEETING"
+                            font_style: "H4"
+                            halign: "center"
+                            adaptive_height: True
+
+                        MDLabel:
+                            text: "DECRYPT THE MESSAGE!"
+                            font_style: "Caption"
+                            halign: "center"
+                            adaptive_height: True
+
+                        MDCard:
+                            md_bg_color: 102/255, 206/255, 145/255, 1
+                            size_hint: 1, None
+                            height: "3dp"
+
+                        Widget:
+                            size_hint: 1, None
+                            height: "150dp"
+
+                        MDLabel:
+                            text: ""
+                            color: 59/255, 102/255, 150/255, 1
+                            id: crypto_text
+                            font_style: "H4"
+                            height: self.texture_size[1]
+                            halign: 'center'
+
+                        MDLabel:
+                            id: crypto_hint
+                            text: "What is todays key, if yesterdays key was the day before yesterday and today will be tomorrows key?"
+                            font_style: "Button"
+                            height: self.texture_size[1]
+                            halign: 'center'
+
+                        Widget:
+                            size_hint: 1, None
+                            height: "150dp"
+
+                        MDTextField:
+                            id: crypto_flag
+                            size_hint: .75, None
+                            multiline: False
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            hint_text: "Enter key here."
+
+                        MDRaisedButton:
+                            id: cry_btn
+                            disabled: False
+                            text: "SUBMIT KEY"
+                            md_bg_color: 102/255, 206/255, 145/255, 1
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            on_release: root.check_crypto()
+
+                        Widget:
+                            size_hint: 1, None
+                            height: "60dp"
+
+                        MDCard:
+                            md_bg_color: 13/255, 17/255, 34/255, 1
+                            size_hint: 1, None
+                            height: "20dp"
+
+            MDScreen:
+                id: converter
+                name: 'converter'
+                MDBoxLayout:
+
+                    orientation: "vertical"
+                    md_bg_color: 13/255, 17/255, 34/255, 1
+
+                    MDToolbar:
+                        title: ""
+                        size_hint: 1, None
+                        height: "40dp"
+                        specific_text_color: 13/255, 17/255, 34/255, 1
+                        md_bg_color: 102/255, 206/255, 145/255, 1
+                        right_action_items: [["menu", lambda x: nav_drawer.set_state("open")],["home", lambda x: root.change_screen("home")]]
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        md_bg_color: 13/255, 17/255, 34/255, 1
+
+                        MDLabel:
+                            id: con_title
+                            text: "BINARY TO DECIMAL"
+                            font_style: "H4"
+                            halign: "center"
+                            adaptive_height: True
+
+                        MDLabel:
+                            text: "CONVERTER"
+                            font_style: "Caption"
+                            halign: "center"
+                            adaptive_height: True
+
+                        MDCard:
+                            md_bg_color: 102/255, 206/255, 145/255, 1
+                            size_hint: 1, None
+                            height: "3dp"
+
+
+                        MDFlatButton:
+                            id: con_flip_btn
+                            text: "CHANGE CONVERTER"
+                            theme_text_color: "Custom"
+                            text_color: 59/255, 102/255, 150/255, 1
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            on_release: root.flip()
+
+                        MDLabel:
+                            text: ""
+                            spacing: "10dp"
+                            id: con_results
+                            font_style: "Button"
+                            height: self.texture_size[1]
+                            halign: 'center'
+
+                        MDLabel:
+                            text: ""
+                            id: con_results_title
+                            font_style: "Button"
+                            height: self.texture_size[1]
+                            halign: 'center'
+
+                        MDTextField:
+                            id: con_input
+                            size_hint: .75, None
+                            multiline: False
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            hint_text: ""
+
+                        MDRaisedButton:
+                            id: con_btn
+                            disabled: False
+                            text: "CONVERT"
+                            md_bg_color: 102/255, 206/255, 145/255, 1
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            on_release: root.convert()
+
+                        Widget:
+                            size_hint: 1, None
+                            height: "10dp"
+
+
+                        Widget:
+                            size_hint: 1, None
+                            height: "60dp"
+
+                        MDCard:
+                            md_bg_color: 13/255, 17/255, 34/255, 1
+                            size_hint: 1, None
+                            height: "20dp"
+
+
+            MDScreen:
+                id: passgenerator
+                name: 'passgenerator'
+                MDBoxLayout:
+
+                    orientation: "vertical"
+                    md_bg_color: 13/255, 17/255, 34/255, 1
+
+                    MDToolbar:
+                        title: ""
+                        size_hint: 1, None
+                        height: "40dp"
+                        specific_text_color: 13/255, 17/255, 34/255, 1
+                        md_bg_color: 102/255, 206/255, 145/255, 1
+                        right_action_items: [["menu", lambda x: nav_drawer.set_state("open")],["home", lambda x: root.change_screen("home")]]
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        md_bg_color: 13/255, 17/255, 34/255, 1
+
+                        MDLabel:
+                            id: passgen
+                            text: "PASSWORD GENERATOR"
+                            font_style: "H4"
+                            halign: "center"
+                            adaptive_height: True
+
+                        MDLabel:
+                            text: "WHEN RANDOMNESS IS A GOOD THING"
+                            font_style: "Caption"
+                            halign: "center"
+                            adaptive_height: True
+
+                        MDCard:
+                            md_bg_color: 102/255, 206/255, 145/255, 1
+                            size_hint: 1, None
+                            height: "3dp"
+
+                        Widget:
+                            size_hint: 1, None
+                            height: "150dp"
+
+                        MDLabel:
+                            text: ""
+                            color: 59/255, 102/255, 150/255, 1
+                            id: passgen_output
+                            font_style: "H6"
+                            height: self.texture_size[1]
+                            halign: 'center'
+
+
+                        MDLabel:
+                            text: ""
+                            spacing: "10dp"
+                            id: passgen_words
+                            font_style: "Button"
+                            height: self.texture_size[1]
+                            halign: 'center'
+
+                        Widget:
+                            size_hint: 1, None
+                            height: "150dp"
+
+                        MDRaisedButton:
+                            id: pass_btn
+                            text: "GENERATE"
+                            md_bg_color: 102/255, 206/255, 145/255, 1
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            on_release: root.passwordgen()
+
+                        Widget:
+                            size_hint: 1, None
+                            height: "60dp"
+
+                        MDCard:
+                            md_bg_color: 13/255, 17/255, 34/255, 1
+                            size_hint: 1, None
+                            height: "20dp"
+
+        MDNavigationDrawer:
+            id: nav_drawer
+            orientation: 'vertical'
+            padding: "8dp"
+            spacing: "8dp"
+            md_bg_color: 13/255, 17/255, 34/255, 1
+
+            MDCard:
+                md_bg_color: 102/255, 206/255, 145/255, 1
+                size_hint: 1, None
+                height: "10dp"
+
+            MDCard:
+                md_bg_color: 102/255, 206/255, 145/255, 1
+                size_hint: 1, None
+                height: "10dp"
+
+            MDLabel:
+                text: "HACK & MOVE"
+                font_style: "H4"
+                adaptive_height: True
+
+            MDLabel:
+                text: "BY D4DHVT 2022"
+                font_style: "Caption"
+                adaptive_height: True
+
+            MDCard:
+                md_bg_color: 102/255, 206/255, 145/255, 1
+                size_hint: 1, None
+                height: "10dp"
+
+            MDBoxLayout:
+
+                MDList:
+                    Widget:
+                        size_hint: 1, None
+                        height: "50dp"
+
+                    MDLabel:
+                        text: "Challenges"
+                        font_style: "H5"
+                        adaptive_height: True
+                    MDCard:
+                        md_bg_color: 102/255, 206/255, 145/255, 1
+                        size_hint: 1, None
+                        height: "3dp"
+
+                    OneLineListItem:
+                        text: "Back in Time"
+                        on_release: scr_mngr.current = "bit"
+
+                    OneLineListItem:
+                        text: "Secret Meeting"
+                        on_release: scr_mngr.current = "crypto"
+
+                    OneLineListItem:
+                        text: "Ported"
+                        disabled: True
+
+                    OneLineListItem:
+                        text: "Webster"
+                        disabled: True
+
+            MDBoxLayout:
+
+                MDList:
+                    Widget:
+                        size_hint: 1, None
+                        height: "50dp"
+
+                    MDLabel:
+                        text: "UNLOCKS"
+                        font_style: "H5"
+                        adaptive_height: True
+                    MDCard:
+                        md_bg_color: 102/255, 206/255, 145/255, 1
+                        size_hint: 1, None
+                        height: "3dp"
+
+                    OneLineListItem:
+                        id: bin_converter
+                        text: "Binary Converter"
+                        on_release: scr_mngr.current = "converter"
+                        disabled: True
+
+                    OneLineListItem:
+                        id: passgenerator
+                        text: "Password Generator"
+                        on_release: scr_mngr.current = "passgenerator"
+                        disabled: True
+
+                    OneLineListItem:
+                        id: game
+                        text: "GAME"
+                        on_release: root.startgame()
+                        disabled: True
+
+            Widget:
+                size_hint: 1, None
+                height: "10dp"
+
+            MDProgressBar:
+                id: progress_bar
+                color: 59/255, 102/255, 150/255, 1
+                size_hint: 1, None
+                height: "5dp"
+                min: 0
+                max: 100
+                value: 0
+
+            MDLabel:
+                id: progress_bar_text
+                text: " "
+                size_hint: 1, None
+                height: self.texture_size[1]
+
+            MDCard:
+                md_bg_color: 102/255, 206/255, 145/255, 1
+                size_hint: 1, None
+                height: "10dp"
